@@ -1,0 +1,8 @@
+[package]
+name = "teddy"
+version = "0.1.0"
+authors = ["jdcoffre <jeandenis.coffre@sonarsource.com>",
+            "drautureau <david.rautureau@sonarsource.com>",
+            "hgomez <henri.gomez@sonarsource.com"]
+
+[dependencies]
