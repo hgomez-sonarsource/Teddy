@@ -7,3 +7,5 @@ authors = ["jdcoffre <jeandenis.coffre@sonarsource.com>",
 
 [dependencies]
 iron = "0.5.1"
+time = "0.1.38"
+url = "^1.4.0"
