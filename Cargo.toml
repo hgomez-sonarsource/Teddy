@@ -1,6 +1,6 @@
 [package]
 name = "teddy"
-version = "1.0.0"
+version = "2.0.0"
 authors = ["jdcoffre <jeandenis.coffre@sonarsource.com>",
             "drautureau <david.rautureau@sonarsource.com>",
             "hgomez <henri.gomez@sonarsource.com"]
