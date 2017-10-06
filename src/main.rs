@@ -14,15 +14,16 @@ use auth::AuthChecker;
 mod responsetime;
 use responsetime::ResponseTime;
 
+mod conf;
+use conf::get_default_config;
+use conf::get_address;
+
 extern crate time;
 extern crate url;
 
 
 fn main() {
-    let ip = "0.0.0.0";
-    let port = 3000;
-    let addr = format!("{}:{}", ip, port);
-    let auth = "teddy:rocks";
+    let conf = get_default_config();
 
     let mut router = Router::new();           // Alternative syntax:
     router.get("/ping", ping_handler, "index");        // let router = router!(index: get "/" => handler,
@@ -31,8 +32,8 @@ fn main() {
 
     let mut chain = Chain::new(router);
     chain.link_before(ResponseTime);
-    chain.link_before(AuthChecker::new(auth));
+    chain.link_before(AuthChecker::new(&conf.authentication));
     chain.link_after(ResponseTime);
 
-    Iron::new(chain).http(&addr).unwrap();
+    Iron::new(chain).http(&get_address(conf)).unwrap();
 }
