@@ -25,9 +25,9 @@ extern crate url;
 fn main() {
     let conf = get_default_config();
 
-    let mut router = Router::new();           // Alternative syntax:
-    router.get("/ping", ping_handler, "index");        // let router = router!(index: get "/" => handler,
-    router.get("/hello", hello_handler, "query");  //                      query: get "/:query" => handler);
+    let mut router = Router::new();
+    router.get("/ping", ping_handler, "index");
+    router.get("/hello", hello_handler, "query");
 
 
     let mut chain = Chain::new(router);
