@@ -7,6 +7,7 @@ use iron::prelude::*;
 use std::path::Path;
 use std::fs::File;
 use std::fs;
+use std::process::Command;
 use iron::status;
 use self::multipart::server::{Multipart, Entries, SaveResult};
 
@@ -58,10 +59,6 @@ pub fn download_handler(req: &mut Request) -> IronResult<Response> {
  Upload Handler
 */
 pub fn upload_handler(request: &mut Request) -> IronResult<Response> {
-
-//   let map = req.get_ref::<Params>().unwrap();
-//    match map.find(&["location"]) {
-//    }
 
     // Getting a multipart reader wrapper
     match Multipart::from_request(request) {
@@ -132,3 +129,29 @@ fn process_entries(entries: Entries) -> IronResult<Response> {
     Ok(Response::with((status::Ok, "Multipart data is processed")))
 }
 
+
+/*
+ Exec Handler
+*/
+pub fn exec_handler(req: &mut Request) -> IronResult<Response> {
+
+    use self::params::{Params, Value};
+
+    let map = req.get_ref::<Params>().unwrap();
+
+    if let Some(command) = map.get("command") {
+        if let Some(parameter) = map.get("parameter") {
+
+            println!("command = {:?}, parameter = {:?}", command, parameter);
+            let zcommand = format!("{:?}", command).replace("\"", "");
+            let zparameter = format!("{:?}", parameter).replace("\"", "");
+            Command::new(zcommand)
+                .env("PATH", "/home/henri/Documents/Apps/jvms/java-1.8.0-sun-x64/bin:/home/henri/Documents/Apps/jvms/java-1.8.0-sun-x64/jre/bin:/home/henri/bin:/home/henri/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/henri/Documents/Apps/gos/go-1.7/bin:/home/henri/bin:/opt/mssql-tools/bin")
+                .arg(zparameter)
+                .spawn()
+                .expect("command failed to start");
+            return Ok(Response::with((iron::status::Ok, "exec")));
+        }
+    }
+    return Ok(Response::with((iron::status::BadRequest, "Specify command and parameter query params")));
+}

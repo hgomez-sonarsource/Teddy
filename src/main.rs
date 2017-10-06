@@ -7,7 +7,7 @@ use iron::prelude::*;
 use router::Router;
 
 mod handlers;
-use handlers::{welcome_handler, ping_handler, download_handler, upload_handler};
+use handlers::{welcome_handler, ping_handler, download_handler, exec_handler, upload_handler};
 
 mod auth;
 use auth::AuthChecker;
@@ -31,6 +31,7 @@ fn main() {
     router.get("/ping", ping_handler, "ping");
     router.get("/download", download_handler, "download");
     router.post("/upload", upload_handler, "upload");
+    router.post("/exec", exec_handler, "exec");
 
     let mut chain = Chain::new(router);
     chain.link_before(ResponseTime);
