@@ -6,7 +6,6 @@ authors = ["jdcoffre <jeandenis.coffre@sonarsource.com>",
             "hgomez <henri.gomez@sonarsource.com"]
 
 [dependencies]
-<<<<<<< HEAD
 iron            = "0.5.1"
 params          = "0.6.0"
 time            = "0.1.38"
@@ -15,19 +14,3 @@ router          = "0.5.1"
 rustc-serialize = "0.3"
 hyper           = "0.10"
 multipart       = "0.13.3"
-||||||| parent of c9a2d46... Protect HTTP
-iron           = "0.5.1"
-params         = "0.6.0"
-time           = "0.1.38"
-url            = "^1.4.0"
-router         = "0.5.1"
-multipart      = "0.13.3"
-=======
-iron            = "0.5.1"
-params          = "0.6.0"
-time            = "0.1.38"
-url             = "^1.4.0"
-router          = "0.5.1"
-multipart       = "0.13.3"
-rustc-serialize = "0.3"
->>>>>>> c9a2d46... Protect HTTP
