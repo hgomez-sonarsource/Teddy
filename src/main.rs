@@ -1,5 +1,6 @@
 extern crate iron;
 extern crate router;
+extern crate hyper;
 
 use iron::prelude::*;
 
