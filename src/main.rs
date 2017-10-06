@@ -15,7 +15,7 @@ mod responsetime;
 use responsetime::ResponseTime;
 
 mod conf;
-use conf::get_default_config;
+use conf::get_config;
 use conf::get_address;
 
 extern crate time;
@@ -23,7 +23,7 @@ extern crate url;
 
 
 fn main() {
-    let conf = get_default_config();
+    let conf = get_config();
 
     let mut router = Router::new();
     router.get("/ping", ping_handler, "ping");

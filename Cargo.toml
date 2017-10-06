@@ -11,3 +11,5 @@ params         = "0.6.0"
 time           = "0.1.38"
 url            = "^1.4.0"
 router         = "0.5.1"
+rustc-serialize = "0.3"
+
