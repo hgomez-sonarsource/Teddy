@@ -1,7 +1,9 @@
+![Teddy Temp Logo](https://seeklogo.com/images/T/teddy-killerz-logo-C525D81288-seeklogo.com.png)
+
 # Teddy
 Teddy - The smart Bear's agent 
 
-Deployable on Linux, Mac and even Windows; Teddy is a small deamon application able to execute a command, upload and download data on a machine. Accessible via HTTP, it handle authentication.
+Deployable on Linux, Mac and even Windows, Teddy is a small deamon application able to execute a command, upload and download data on a machine. All operations are done via REST calls.
 
 ## Constraints
  - low memory consumption
