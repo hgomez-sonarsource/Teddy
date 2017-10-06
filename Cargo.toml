@@ -6,3 +6,4 @@ authors = ["jdcoffre <jeandenis.coffre@sonarsource.com>",
             "hgomez <henri.gomez@sonarsource.com"]
 
 [dependencies]
+iron = "0.5.1"
